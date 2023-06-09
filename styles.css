@@ -1,0 +1,213 @@
+:root {
+  --background-color: #232525;
+}
+
+body{
+  background: var(--background-color);
+}
+
+.box-canvas{
+  position: relative;
+  margin: auto;
+  display: block;
+  margin-top: 8%;
+  margin-bottom: 8%;
+  width: 600px;
+  height: 600px;
+  background: var(--background-color);
+}
+
+.rack-frame {
+  position: absolute;
+  left: 50%;
+  top: 100px;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 200px;
+}
+
+.tube1 {
+  --liquid-color: rgb(4,146,248); /* CELESTE */
+  --liquid-height: 90%;
+  
+  left: 25px;
+}
+
+.tube2 {
+  --liquid-color: rgb(122,183,87); /* VERDE */
+  --liquid-height: 65%;
+  
+  left: 90px;
+}
+
+.tube3 {
+  --liquid-color: rgb(204,0,1); ; /* ROSSO */
+  --liquid-height: 80%;
+  
+  left: 160px;
+}
+
+.tube4 {
+  --liquid-color: rgba(2,187,218,1) 10%, rgba(8,241,181,1); /* GRADIENTE */
+  --liquid-height: 90%;
+  
+  left: 230px;
+}
+.tube5 {
+  --liquid-color: rgb(255,115,43); /* ARANCIO */
+  --liquid-height: 80%;
+  
+  left: 300px; 
+}
+
+.test-tube {
+  position: absolute;
+  top: -25px;
+  height: 200px;
+  width: 40px;
+  border-radius: 0 0 30% 30%;
+  background: linear-gradient(to top, 
+    var(--liquid-color), 
+    var(--liquid-color) var(--liquid-height), 
+    transparent var(--liquid-height), 
+    transparent);
+}
+
+/* Creazione forma del tubo */
+.test-tube::before {
+  content: '';
+  position: absolute;
+  height: 200px;
+  width: 40px;
+  border-radius: 0 0 30% 30%;
+  background: linear-gradient(to right,
+    rgba(255,255,255, 0.6),
+    rgba(255,255,255, 0.1) 50%,
+    rgba(255,255,255, 0.6)
+  );
+}
+
+/* Cerchio superiore provetta */
+.test-tube::after {
+  content: '';
+  position: absolute;
+  left: -5px;
+  top: -5px;
+  width: 40px;
+  height: 5px;
+  border-radius: 50%;
+  border: 5px solid rgba(255,255,255, 0.6);
+}
+
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.5);
+  animation: bubbleUp 2s infinite;
+  width: 10px;
+  height: 10px;
+}
+
+.tube1 .bubble {
+  bottom: 10px;
+  left: 5px;
+}
+
+.tube2 .bubble {
+  bottom: 5px;
+  left: 15px;
+  animation-delay: 0.5s;
+}
+
+.tube3 .bubble {
+  bottom: 20px;
+  right: 5px;
+}
+
+.tube4 .bubble {
+  bottom: 10px;
+  left: 15px;
+  animation-delay: 0.75s;
+}
+
+.tube5 .bubble {
+  bottom: 10px;
+  left: 5px;
+}
+
+.bubble::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.5);
+  animation: bubbleUp 2s infinite;
+}
+
+.tube1 .bubble::before {
+  left: 10px;
+  top: -10px;
+}
+
+.tube2 .bubble::before {
+  left: -10px;
+  top: -10px;
+  animation-delay: 0.5s;
+}
+
+.tube3 .bubble::before {
+  right: 10px;
+  top: 10px;
+}
+
+.tube4 .bubble::before {
+  animation-delay: 0.75s;
+}
+
+.tube5 .bubble::before {
+  left: 10px;
+  top: 10px;
+}
+
+
+.bubble::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.5);
+  animation: bubbleUp 2s infinite;
+}
+
+.tube1 .bubble::after {
+  left: 20px;
+  top: -15px;
+}
+ /* Durata animazione */
+.tube2 .bubble::after {
+  animation-delay: 0.5s;
+}
+
+.tube3 .bubble::after {
+  right: 20px;
+  top: -5px;
+}
+ 
+.tube4 .bubble::after {
+  animation-delay: 0.75s;
+}
+
+.tube5 .bubble::after {
+  animation-delay: 0.5s;
+}
+
+
+@keyframes bubbleUp {
+  100% {
+    transform: translateY(-50px);
+    background: transparent;
+  }
+}
+
